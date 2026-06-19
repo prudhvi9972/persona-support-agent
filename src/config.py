@@ -1,0 +1,5 @@
+CHUNK_SIZE=500
+CHUNK_OVERLAP=50
+TOP_K=3
+CONFIDENCE_THRESHOLD=0.45
+SENSITIVE_KEYWORDS=["billing","refund","legal","account modification"]
