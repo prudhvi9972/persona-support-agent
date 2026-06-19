@@ -10,9 +10,12 @@ class LocalRAGPipeline:
         self.chroma=chromadb.PersistentClient(path=db_dir)
         self.collection=self.chroma.get_or_create_collection("support_kb")
 
-    def embed(self,text):
-        r=self.client.models.embed_content(model="text-embedding-004",contents=text)
-        return r.embeddings[0].values
+    def embed(self, text):
+        response = self.client.models.embed_content(
+            model="gemini-embedding-001",
+            contents=text
+        )
+        return response.embeddings[0].values
 
     def load_documents(self,data_dir="data"):
         docs=[]
